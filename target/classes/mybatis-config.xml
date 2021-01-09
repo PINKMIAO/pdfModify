@@ -8,10 +8,10 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.netsuite.jdbc.openaccess.OpenAccessDriver"/>
-                <property name="url" value="jdbc:ns://5179288.connect.api.netsuite.com:1708;ServerDataSource=NetSuite.com;Encrypted=1;CustomProperties=(AccountID=5179288;RoleID=3)"/>
-                <property name="username" value="DataMigration@meorient.com"/>
-                <property name="password" value="@^*gLGyGCp"/>
+                <property name="driver" value="com.mysql.***"/>
+                <property name="url" value="***"/>
+                <property name="username" value="admin"/>
+                <property name="password" value="admin"/>
             </dataSource>
         </environment>
     </environments>
