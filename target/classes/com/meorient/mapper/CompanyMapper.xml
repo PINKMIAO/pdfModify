@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meorient.mapper.CompanyMapper">
+
+    <resultMap id="Msg" type="com.meorient.pojo.Company">
+        <result property="companyId" column="COMPANY_ID"/>
+        <result property="fullName" column="FULL_NAME"/>
+        <result property="tranId" column="TRANID"/>
+        <result property="amount" column="AMOUNT"/>
+        <result property="memo" column="MEMO"/>
+        <result property="transactionId" column="TRANSACTION_ID"/>
+        <result property="transactionLineId" column="TRANSACTION_LINE_ID"/>
+        <result property="transactionOrder" column="TRANSACTION_ORDER"/>
+    </resultMap>
+
+    <select id="getAllMsg" resultMap="Msg">
+        select b.TRANID, a.TRANSACTION_LINE_ID, a.TRANSACTION_ORDER, a.COMPANY_ID, c.FULL_NAME, a.TRANSACTION_ID, a.AMOUNT, a.MEMO
+        from TRANSACTION_LINES a
+        left join TRANSACTIONS b on a.TRANSACTION_ID = b.TRANSACTION_ID
+        left join entity c on a.COMPANY_ID = c.ENTITY_ID
+        order by TRANID, TRANSACTION_LINE_ID
+    </select>
+
+</mapper>
